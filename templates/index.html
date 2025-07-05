@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Your Major | MajorMatch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Discover Your Ideal Major</h1>
+        <p class="subtitle">Take our short quiz and find out which university major suits you best!</p>
+        
+        <form action="/quiz" method="post">
+            <label for="major">Select the field you're most interested in:</label>
+            <select name="major" id="major" required>
+                <option value="" disabled selected>-- Choose a Major --</option>
+                
+                <!-- Technology & Engineering -->
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+
+                <!-- Business & Management -->
+                <option value="Business">Business</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+                <option value="Economics">Economics</option>
+                <option value="Entrepreneurship">Entrepreneurship</option>
+
+                <!-- Health & Medicine -->
+                <option value="Medicine">Medicine</option>
+                <option value="Nursing">Nursing</option>
+                <option value="Pharmacy">Pharmacy</option>
+                <option value="Public Health">Public Health</option>
+                <option value="Dentistry">Dentistry</option>
+                <option value="Biomedical Science">Biomedical Science</option>
+
+                <!-- Social Sciences & Education -->
+                <option value="Psychology">Psychology</option>
+                <option value="Sociology">Sociology</option>
+                <option value="Education">Education</option>
+                <option value="International Relations">International Relations</option>
+                <option value="Political Science">Political Science</option>
+                <option value="Law">Law</option>
+
+                <!-- Arts & Humanities -->
+                <option value="English Literature">English Literature</option>
+                <option value="History">History</option>
+                <option value="Philosophy">Philosophy</option>
+                <option value="Visual Arts">Visual Arts</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Media & Communication">Media & Communication</option>
+
+                <!-- Science & Environment -->
+                <option value="Biology">Biology</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Environmental Science">Environmental Science</option>
+                <option value="Geography">Geography</option>
+            </select>
+            <button type="submit">Start Quiz</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ major }} Quiz</title>
+  <style>
+    /* Global reset and theme */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+        padding: 30px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #4a148c;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .question-block {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 10px;
+        border-left: 4px solid #7b1fa2;
+    }
+
+    .question-block p {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .option {
+        margin-bottom: 0.3rem;
+        display: block;
+        padding-left: 10px;
+    }
+
+    .option input[type="radio"] {
+        margin-right: 8px;
+        accent-color: #7b1fa2;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 1rem;
+        background-color: #7b1fa2;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>{{ major }} Quiz</h1>
+    <form action="/result" method="post">
+      {% for q in questions %}
+        <div class="question-block">
+          <p>Q{{ loop.index }}: {{ q.question }}</p>
+          {% for opt in q.options %}
+            <label class="option">
+              <input type="radio" name="q{{ q.id }}" value="{{ opt[0] }}" required>
+              {{ opt }}
+            </label>
+          {% endfor %}
+          <input type="hidden" name="correct_q{{ q.id }}" value="{{ q.correct }}">
+        </div>
+      {% endfor %}
+      <button type="submit">Submit Quiz</button>
+    </form>
+  </div>
+</body>
+</html>
